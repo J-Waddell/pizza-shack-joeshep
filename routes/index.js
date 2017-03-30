@@ -5,9 +5,9 @@ const router = Router()
 
 // public routes
 router.use(require('./about'))
-router.use(require('./contact'))
-router.use(require('./login'))
-router.use(require('./register'))
+// router.use(require('./contact'))
+// router.use(require('./login'))
+// router.use(require('./register'))
 router.use(require('./root'))
 
 // login guard middle-ware. Send em back home if they aren't registered
@@ -21,7 +21,7 @@ router.use( (req, res, next) => {
 })
 
 // private routes
-router.use(require('./logout'))
-router.use(require('./order'))
+// router.use(require('./logout'))
+// router.use(require('./order'))
 
 module.exports = router

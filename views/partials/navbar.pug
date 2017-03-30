@@ -10,9 +10,7 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       #navbar.collapse.navbar-collapse
         ul.nav.navbar-nav
             li(class={ active: !page })
-            //- li(class=`${page || 'active'}`)
-            //- li(class= `${page === 'About' ? 'active' : ''}`)
-            a(href='/') Home
+                a(href='/') Home
             li(class={ active: page === 'About'})
                 a(href= '/about') About
             li(class={ active: page === 'Contact'})

@@ -4,6 +4,8 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
+const routes = require('./routes/')
+
 //view engine/ pug configuration
 app.set('view engine', 'pug')
 
@@ -12,13 +14,8 @@ app.locals.company = "🍕Pizza Shack🍕"
 //middle-ware
 app.use(express.static('public'))
 
-app.get('/', (req, res, next) => {
-    res.render('index')
-})
+app.use(routes)
 
-app.get('/about', (req, res, next) => {
-    res.render('about', {page: 'About'})
-})
 
 app.get('/contact', (req, res, next) => {
     res.render('contact', {page: 'Contact'})
