@@ -17,9 +17,9 @@ app.use(express.static('public'))
 app.use(routes)
 
 
-app.get('/contact', (req, res, next) => {
-    res.render('contact', {page: 'Contact'})
-})
+// app.get('/contact', (req, res, next) => {
+//     res.render('contact', {page: 'Contact'})
+// })
 
 app.get('/login', (req, res, next) => {
     res.render('login', {page: 'Login'})

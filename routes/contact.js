@@ -2,10 +2,10 @@
 
 const { Router } = require('express')
 
-const { show } = require('../controllers/aboutCtrl')
+const { show } = require('../controllers/contactCtrl')
 
 const router = Router()
 
-router.get('/about', show)
+router.get('/contact', show)
 
 module.exports = router
