@@ -8,6 +8,20 @@ block content
     .order-form
         form(method="POST")
             .form-group
+                label.control-label.requiredField(for='crusts')
+                    | Select Style of Crust
+                    span.asteriskField *
+                col-xs-12
+                    select#meats.select.form-control.input-lg(
+                        form='addcrusts', name='crusts'
+                    )
+                        option(value='0') -- Select --
+                        option(value='1') Flat Bread
+                        option(value='2') Thin Crust
+                        option(value='3') Deep-Deesh
+                        option(value='4') O.G. Style 
+
+            .form-group
                 label.control-label.requiredField(for='meats')
                     | Select Meat Topping
                     span.asteriskField *
