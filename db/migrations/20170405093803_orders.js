@@ -1,6 +1,6 @@
 'use strict'
 
-exports.up = function(knex, Promise) {
+exports.up = (knex, Promise) => {
   return knex.schema.createTable('orders', (table) => {
     table.increments()
     table.string('name').notNullable()

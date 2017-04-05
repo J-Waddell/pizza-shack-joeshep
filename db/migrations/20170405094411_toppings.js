@@ -1,11 +1,11 @@
 'use strict'
 
-exports.up = function(knex, Promise) {
+exports.up = (knex, Promise) => {
   return knex.schema.createTable('toppings', (table) => {
     table.increments()
     table.string('name').notNullable()
-};
-
+});
+}
 exports.down = (knex, Promise) => knex.schema.dropTable('toppings')
 
 // Contacts:
