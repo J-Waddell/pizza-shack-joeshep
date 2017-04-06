@@ -1,5 +1,5 @@
 body {
-  background: khaki;
+  background: goldenrod;
   padding-top: 50px;
 }
 
@@ -8,14 +8,19 @@ body {
 }
 
 .welcome__text {
-  color: red;
+  color: grey;
+  /*padding-top: 5em;*/
 }
 
 .welcome__image img {
   max-height: 250px;
-  max-width: 250px;
+  max-width: 500px;
 }
 
 .contact-form__submit {
   text-align: right
 }
+
+/*h1 {
+    padding-top: 5em;
+}*/

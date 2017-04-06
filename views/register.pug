@@ -1,0 +1,43 @@
+extends partials/layout.pug
+
+block content
+    .heading
+        h1 Register
+        if msg
+            h2= msg
+    .register-form
+        form(method="POST")
+            .form-group
+                label(for='name') Name
+                input.form-control#name(
+                    type='text'
+                    name='name'
+                    placeholder='First and Last Name'
+                )
+            .form-group
+                label(for='email') Email Address
+                input.form-control#email(
+                    type='email'
+                    name='email'
+                    placeholder='Enter@your.email'
+                    required
+                )
+            .form-group
+                label(for='password') Password
+                input.form-control#password(
+                    type='password'
+                    name='password'
+                    placeholder='Enter Password'
+                    required
+                )
+            .form-group
+                label(for='confirmPassword') Confirm Password
+                input.form-control#confirmPassword(
+                    type='confirmPassword'
+                    name='confirmPassword'
+                    placeholder='Re-Enter Password'
+                    required
+                )
+            .contact-form__submit
+                a.btn.btn-danger.btn-lg(href='/') Cancel
+                input.btn.btn-info.btn-lg(type='submit' value='Register')

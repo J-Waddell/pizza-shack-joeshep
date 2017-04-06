@@ -2,8 +2,11 @@
   "name": "pizza-shack-joeshep",
   "version": "1.0.0",
   "description": "A Node.js app with pug templates and postgreSQL",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "db:reset": "knex migrate:rollback && knex migrate:latest &&  knex seed:run",
+    "start": "nodemon ./app.js",
+    "deploy": "git push heroku master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +18,15 @@
   "bugs": {
     "url": "https://github.com/nss-day-cohort-17/pizza-shack-joeshep/issues"
   },
-  "homepage": "https://github.com/nss-day-cohort-17/pizza-shack-joeshep#readme"
+  "homepage": "https://github.com/nss-day-cohort-17/pizza-shack-joeshep#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bookshelf": "^0.10.3",
+    "bookshelf-bcrypt": "^2.1.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.2",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5",
+    "pug": "^2.0.0-beta11"
+  }
 }

@@ -1,0 +1,145 @@
+extends partials/layout.pug
+
+block content
+    if errors
+        each err in errors
+            h1= err.message
+    .heading
+        h1 Order
+    .order-form
+        form(method="POST")
+            .form-group(class={'has-error': errors.name})
+                label.control-label(for='name') Name
+                input.form-control#name(
+                    type='text'
+                    name='name'
+                    placeholder='Gandolf T. White'
+                    value=body.name
+                    required
+                )
+                if errors.name
+                    span.help-block= errors.name.message
+            .form-group(class={'has-error': errors.phone})
+                label.control-label(for='phone') Phone Number
+                input.form-control#phone(
+                type='tel'
+                name='phone'
+                placeholder='555-123-1234'
+                value=body.phone
+                required
+                )
+                if errors.phone
+                    span.help-block= errors.phone.message
+            .form-group(class={'has error': errors.size})
+                label.control-label(for='size') Size
+                select.form-control#size(name='size' required)
+                    option(disabled selected) Select a size:
+                    each size in sizes
+                        option(
+                            value=size.inches
+                            selected=(+body.size === +size.inches)
+                        )   #{size.name}: #{size.inches}
+                    if errors.size
+                        span.help-block= errors.size.message
+                #toppings(class={'has-error': errors.toppings})
+                    h5 Toppings
+                    each topping in toppings
+                        label= topping.name
+                            input(
+                            type='checkbox'
+                            name='toppings'
+                            value=topping.name
+                            selected=(body.toppings && body.toppings.includes(topping.name))
+                            )
+                    if errors.toppings
+                        span.help-block= errors.toppings.message
+                .order-form__submit
+                    a.btn.btn-danger.btn-lg(href='/') Cancel
+                    input.btn.btn-info.btn-lg(type='submit' value='Order it!😘')
+
+//- extends partials/layout
+
+//- block content
+//-     .heading
+//-         h1 Order Up
+//-         if msg
+//-             h2=msg
+//-     .order-form
+//-         form(method="POST")
+//-             .form-group
+//-                 label.control-label.requiredField(for='crusts')
+//-                     | Select Style of Crust
+//-                     span.asteriskField *
+//-                 col-xs-12
+//-                     select#meats.select.form-control.input-lg(
+//-                         form='addcrusts', name='crusts'
+//-                     )
+//-                         option(value='0') -- Select --
+//-                         option(value='1') Flat Bread
+//-                         option(value='2') Thin Crust
+//-                         option(value='3') Deep-Deesh
+//-                         option(value='4') O.G. Style
+
+//-             .form-group
+//-                 label.control-label.requiredField(for='meats')
+//-                     | Select Meat Topping
+//-                     span.asteriskField *
+//-                 col-xs-12
+//-                     select#meats.select.form-control.input-lg(
+//-                         form='addmeats', name='meats'
+//-                     )
+//-                         option(value='0') -- Select --
+//-                         option(value='1') Pep-Pep
+//-                         option(value='2') Snausage
+//-                         option(value='3') Cheeckin
+//-                         option(value='4') Bacony
+
+//-             .form-group
+//-                 label.control-label.requiredField(for='veggies')
+//-                     | Select Veggie Topping
+//-                     span.asteriskField *
+//-                 col-xs-12
+//-                     select#veggie.select.form-control.input-lg(
+//-                         form='addveggie', name='veggies'
+//-                     )
+//-                         option(value='0') -- Select --
+//-                         option(value='1') Bell peppa
+//-                         option(value='2') Jalapinyo-bizness
+//-                         option(value='3') Toemat
+//-                         option(value='4') Mushyroom
+
+//-             .form-group
+//-                 label.control-label.requiredField(for='sauce')
+//-                     | Select Sowce
+//-                     span.asteriskField *
+//-                 col-xs-12
+//-                     select#sauce.select.form-control.input-lg(
+//-                         form='addsauce', name='sauces'
+//-                     )
+//-                         option(value='0') -- Select --
+//-                         option(value='1') O.G Tomato
+//-                         option(value='2') Marinara
+//-                         option(value='3') Garlicious
+//-                         option(value='4') Nacho Cheese Sowce
+
+//-             .form-group
+//-                 label.control-label.requiredField(for='cheese')
+//-                     | Select Cheese
+//-                     span.asteriskField *
+//-                 col-xs-12
+//-                     select#cheese.select.form-control.input-lg(
+//-                         form='addcheese', name='cheeses'
+//-                     )
+//-                         option(value='0') -- Select --
+//-                         option(value='1') Cheddah
+//-                         option(value='2') Mozzubrella
+//-                         option(value='3') Mixed up (cheddah & Mozzubrella)
+//-                         option(value='4') No Cheese Please
+
+//-             .form-group
+//-                 label(for='message') Any Special Requests?
+//-                 input.form-control#message(type='message' name='message' row=5 placeholder='Let us know here' )
+
+//-             .contact-form__submit
+//-                 a.btn.btn-danger.btn-lg(href='/') Cancel Order
+//-                 input.btn.btn-info.btn-lg(type='submit' value='Send Order')

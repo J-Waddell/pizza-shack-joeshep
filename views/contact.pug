@@ -1,0 +1,18 @@
+extends partials/layout.pug
+
+block content
+    h1 Contact us
+    .contact-form
+        form(method='POST')
+            .form-group
+                label(for='name') Name
+                input.form-control#name(type='text' name='name' placeholder='Your name here').form-group
+                label(for='email') Email
+                input.form-control#email(type='email' name='email' placeholder='Your@email.here').form-group
+                label(for='phone') Phone
+                input.form-control#phone(type='phone' name='phone' placeholder='(555)123-1234').form-group
+                label(for='message') Message
+                input.form-control#message(type='message' name='message' rows=5 placeholder='Where is my zaaaaaa?')
+                .contact-form__submit
+                    a.btn.btn-danger.btn-lg(href='/') Cancel
+                    input.btn.btn-info.btn-lg(type='submit' value='Submit')
