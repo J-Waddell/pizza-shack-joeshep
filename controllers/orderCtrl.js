@@ -25,7 +25,7 @@ module.exports.show = (req, res, err) =>
         ).catch(err)
 
 
-module.exports.create = ({ body }, req, res) => {
+module.exports.create = ({ body }, res, err) => {
     // console.log("body", body)
     Order.forge(body)
         .save()
