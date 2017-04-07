@@ -3,6 +3,9 @@ extends partials/layout.pug
 block content
     .welcome
         .welcome__text
-            h1 Welcome to da Shack!
+            if orderMsg
+                h2= orderMsg
+            else
+                h1 Welcome to da Shack!
         .welcome__image
             img(src='/images/pizza.jpg')
