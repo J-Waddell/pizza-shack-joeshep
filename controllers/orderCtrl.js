@@ -30,7 +30,8 @@ module.exports.create = ({ body }, res, err) => {
     Order.forge(body)
         .save()
         .then( (orderObj) => {
-            res.render('index', {orderMsg: "Thanks for your order!"})
+            req.flash('orderMsg', 'Thank you for your purchase!🏡')
+            res.redirect('/')
         })
         .catch( (err) => {
             console.log("Errors!", err)

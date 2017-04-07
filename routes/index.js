@@ -7,7 +7,7 @@ const router = Router()
 router.use(require('./about'))
 router.use(require('./contact'))
 // router.use(require('./login'))
-// router.use(require('./register'))
+router.use(require('./register'))
 router.use(require('./root'))
 
 // login guard middle-ware. Send em back home if they aren't registered
